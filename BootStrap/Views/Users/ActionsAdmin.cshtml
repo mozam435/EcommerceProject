@@ -1,0 +1,25 @@
+﻿
+@if (Context.Session.GetString("UserName") != null)
+{
+<div class="container">
+    <div>
+        <a href="/Product/AddProduct">Add product</a>
+    </div>
+    <div>
+        <a href="/"></a>
+    </div>
+    <div>
+        <a href="/">Edit products</a>
+    </div>
+    <div>
+        <a href="/">Remove Products</a>
+    </div>
+
+</div>
+}
+else
+{
+   <div>
+       <h1>go to login first</h1>
+   </div>
+}

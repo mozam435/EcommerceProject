@@ -1,0 +1,53 @@
+﻿@model Product
+@{ 
+    IList<Product> P = ViewBag.PList;
+}
+
+<div class="container">
+    <form asp-action="ProductListAdmin" method="post">
+        <div><h1>@ViewBag.ntfnd</h1></div>
+        <div><h1>@ViewBag.notfound</h1></div>
+        <div class="searchbox">
+            <input type="text" asp-for="ProductName" placeholder="Member name" />
+
+            <input type="submit" value="Search" />
+        </div>
+    </form>
+    <div class="row">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>SKU</th>
+                    <th>Name</th>
+                    <th>Category</th>
+                    <th>Stock</th>
+                    <th>Actions</th>
+                </tr>
+
+            </thead>
+
+            <tbody>
+                @foreach (var item in P)
+                {
+                    <tr>
+                        <td>@item.ProductId</td>
+                        <td>@item.ProductSku</td>
+                        <td>@item.ProductName</td>
+                        <td>@item.ProductCategoryId</td>
+                        <td>@item.ProductStock</td>
+
+                        <td>
+                            <a href="ProductDetail/@item.ProductId" class="btn btn-sm btn-info">Detail</a>
+                            <a href="ProductEdit/@item.ProductId" class="btn btn-sm btn-warning">Edit</a>
+                            <a href="ProductDelete/@item.ProductId" class="btn btn-sm btn-danger">Delete</a>
+                        </td>
+
+                    </tr>
+                }
+            </tbody>
+
+        </table>
+    </div>
+
+</div>

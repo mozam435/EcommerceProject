@@ -1,0 +1,41 @@
+﻿@model IList<Productcategory>
+
+
+@{ 
+    IList<Productcategory> LS = ViewBag.LSB;
+}
+
+<div class="container">
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Category ID</th>
+                <th>Category Name</th>
+                <th>Actions</th>
+            </tr>
+
+
+        </thead>
+
+        <tbody>
+
+            @foreach (var item in LS)
+            {
+                <tr>
+                    <td>@item.CategoryId</td>
+                    <td>@item.CategoryName</td>
+                    <td>
+                        <a href="categoryEdit/@item.CategoryId" class="btn btn-sm btn-warning">Edit</a>
+                        <a href="CategoryDetail/@item.CategoryId" class="btn btn-sm btn-info">Detail</a>
+                        <a href="CategoryDelete/@item.CategoryId" class="btn btn-sm btn-danger">Delete</a>
+                    </td>
+                </tr>
+
+            }
+
+
+
+        </tbody>
+
+    </table>
+</div>

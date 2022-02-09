@@ -1,0 +1,83 @@
+﻿@model Product
+
+
+@{ 
+    IList<Productcategory> ABC = ViewBag.CatBag;
+}
+
+<div class="container-fluid">
+    
+       
+        <form asp-action="AddProduct" enctype="multipart/form-data">
+            <div class="col-6">
+                <label asp-for="ProductSku">SKU CODE</label>
+                <input asp-for="ProductSku" type="text" class="form-control" />
+            </div>
+            <div class="col-6">
+                <label asp-for="ProductName">Product Name</label>
+                <input asp-for="ProductName" type="text" class="form-control" />
+            </div>
+            <div class="col-6">
+                <label asp-for="ProductPrice">Product Price</label>
+                <input asp-for="ProductPrice" type="text" class="form-control" />
+            </div>
+            <div class="col-6">
+                <label asp-for="ProductWeight">ProductWeight</label>
+                <input asp-for="ProductWeight" type="text" class="form-control" />
+            </div>
+            <div class="col-6">
+                <label asp-for="ProductCartDiscount">Product Cart discount</label>
+                <input asp-for="ProductCartDiscount" type="text" class="form-control" />
+            </div>
+            <div class="col-6">
+                <label asp-for="ProductShortDiscription">Short Description</label>
+                <input asp-for="ProductShortDiscription" type="text" class="form-control" />
+            </div>
+            <div class="col-6">
+                <label asp-for="ProductLongDiscription">Long Description</label>
+                <input asp-for="ProductLongDiscription" type="text" class="form-control" />
+            </div>
+            <div class="col-6">
+                <label asp-for="ProductThumb">Thumb</label>
+                <input asp-for="ProductThumb" type="text" class="form-control" />
+            </div>
+            <div class="col-8">
+                <label asp-for="ProductCategoryId">Select Category</label>
+                <select class="form-control" asp-for="ProductCategoryId">
+                    @foreach (var item in ABC)
+                    {
+                        <option value="@item.CategoryId">@item.CategoryName</option>
+                    }
+                </select>
+            </div>
+            <div class="col-8">
+                <label asp-for="ProductUpdateDate">Update Date</label>
+                <input asp-for="ProductUpdateDate" type="date" class="form-control" />
+            </div>
+            <div class="col-8">
+                <label asp-for="ProductStock">Stock Available</label>
+                <input asp-for="ProductStock" type="text" class="form-control" />
+            </div>
+            <div class="col-8">
+                <label asp-for="ProductLive">Live</label>
+                <input asp-for="ProductLive" type="text" class="form-control" />
+            </div>
+            <div class="col-8">
+                <label asp-for="ProductUnlimited">Unlimited</label>
+                <input asp-for="ProductUnlimited" type="text" class="form-control" />
+            </div>
+            <div class="col-8">
+                <label asp-for="ProductLocation">Location</label>
+                <input asp-for="ProductLocation" type="text" class="form-control" />
+            </div>
+            <div class="col-8">
+                <label asp-for="ProductImage">Images</label>
+                <input id="FL" name="FL" type="file" class="form-control" multiple/>
+            </div>
+
+            <input type="submit" value="Upload"/>
+        </form>
+
+    
+
+</div>
